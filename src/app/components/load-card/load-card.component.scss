@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  position: relative;
+  padding: 32px;
+  margin: 32px 0;
+  border: 1px solid #3032471a;
+  border-radius: 20px;
+  padding-right: 190px;
+}
+
+.title {
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.card-button {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+}
+
+.invested-label {
+  position: absolute;
+  font-size: 16px;
+  font-weight: 600;
+  color: #51a571;
+  top: 13px;
+  right: 32px;
+}

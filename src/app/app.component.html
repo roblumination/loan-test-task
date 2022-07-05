@@ -1,12 +1,3 @@
-<div class="header">Current loans</div>
-<div class="loans-list">
-  <div class="loan" *ngFor="let loan of loans">
-    <div class="title">{{ loan.title }}</div>
-    <div>{{ loan.available }}</div>
-    <button class="invest-button card-button">INVEST</button>
-    <div class="invested-label">Invested</div>
-  </div>
-</div>
 <div class="modal-background">
   <div class="modal">
     <h1>Invest in loan</h1>
@@ -24,4 +15,13 @@
       <img src="../assets/cross.svg" />
     </div>
   </div>
+</div>
+
+<div class="header">Current loans</div>
+<div class="loans-list">
+  <app-load-card *ngFor="let loan of loans" [loan]="loan"></app-load-card>
+</div>
+<div class="total">
+  <div>Total amount available for investment:</div>
+  <div>${{ currentAmmount }}</div>
 </div>

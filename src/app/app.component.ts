@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'loan-list';
 
+  currentAmmount = 0;
+
   loans = [
     {
       id: '1',
@@ -41,4 +43,17 @@ export class AppComponent {
       amount: '85,754',
     },
   ];
+
+  constructor() {
+    this.updateAmmount();
+  }
+
+  updateAmmount() {
+    let result = 0;
+    this.loans.forEach((loan) => {
+      result += +loan.available.split(',').join('');
+    });
+
+    this.currentAmmount = result;
+  }
 }
