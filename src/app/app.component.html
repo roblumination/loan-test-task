@@ -1,1 +1,27 @@
 <div class="header">Current loans</div>
+<div class="loans-list">
+  <div class="loan" *ngFor="let loan of loans">
+    <div class="title">{{ loan.title }}</div>
+    <div>{{ loan.available }}</div>
+    <button class="invest-button card-button">INVEST</button>
+    <div class="invested-label">Invested</div>
+  </div>
+</div>
+<div class="modal-background">
+  <div class="modal">
+    <h1>Invest in loan</h1>
+    <p>Title</p>
+    <p>
+      Amount available: $12,362<br />
+      Loan ends in: 1 month 10 days
+    </p>
+    <h2>Invesment amount</h2>
+    <div>
+      <input type="number" value="1000" />
+      <button class="invest-button">INVEST</button>
+    </div>
+    <div class="close-ico">
+      <img src="../assets/cross.svg" />
+    </div>
+  </div>
+</div>
