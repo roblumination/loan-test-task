@@ -4,14 +4,17 @@
   (requestInvest)="invest($event)"
   [currentLoan]="currentLoan"
 ></app-modal>
+
 <div class="header">Current Loans</div>
+
 <div class="loans-list">
   <app-load-card
     *ngFor="let loan of loans"
     [loan]="loan"
-    (requestOpenModal)="showModal($event)"
+    (click)="openModal(loan)"
   ></app-load-card>
 </div>
+
 <div class="total">
   <div>Total amount available for investment:</div>
   <div>${{ currentAmmount }}</div>

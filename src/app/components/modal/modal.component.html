@@ -1,12 +1,12 @@
 <div class="modal-background" *ngIf="isVisible">
   <div class="modal">
-    <h1>Invest in loan</h1>
+    <h1>Invest in Loan</h1>
     <p>{{ currentLoan.title }}</p>
     <p>
       Amount available: ${{ currentLoan.available }}<br />
       Loan ends in: {{ currentLoan.term_remaining | timeFormater }}
     </p>
-    <h2>Invesment amount</h2>
+    <h2>Investment amount</h2>
     <div class="input-block">
       <input type="number" value="1000" #investInp />
       <button class="invest-button" (click)="invest(investInp.value)">

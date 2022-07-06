@@ -73,7 +73,7 @@ export class AppComponent {
     this.updateTotalAmmount();
   }
 
-  showModal(loan: any) {
+  openModal(loan: any) {
     this.currentLoan = loan;
     this.isModalVisible = true;
   }

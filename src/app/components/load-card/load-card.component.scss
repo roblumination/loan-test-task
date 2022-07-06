@@ -6,6 +6,10 @@
   border: 1px solid #3032471a;
   border-radius: 20px;
   padding-right: 190px;
+
+  &:hover {
+    background-color: #aaaaaa08;
+  }
 }
 
 .title {

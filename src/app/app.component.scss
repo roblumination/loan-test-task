@@ -14,6 +14,11 @@
 }
 
 .total {
+  position: sticky;
+  bottom: 0px;
+  background-color: #fffc;
+  backdrop-filter: blur(16px);
+
   font-weight: 600;
   font-size: 20px;
   display: flex;

@@ -18,14 +18,18 @@ export class ModalComponent implements OnInit {
   }
 
   invest(value: any) {
-    console.log(value);
+    if (isNaN(value) || value <= 0) {
+      alert(`Tester detected :D`);
+      return;
+    }
     if (value > +this.currentLoan.available.split(',').join('')) {
       alert(
         `You can't specify amount more than ${this.currentLoan.available} `
       );
-    } else {
-      this.requestInvest.emit({ loan: this.currentLoan, value: value });
+      return;
     }
+
+    this.requestInvest.emit({ loan: this.currentLoan, value: value });
   }
 
   ngOnInit(): void {}
