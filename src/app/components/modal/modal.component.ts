@@ -14,7 +14,6 @@ export class ModalComponent implements OnInit {
   @Output() requestInvest = new EventEmitter();
 
   close() {
-    // this.isVisible = false;
     this.requestCloseModal.emit(false);
   }
 
@@ -27,8 +26,6 @@ export class ModalComponent implements OnInit {
     } else {
       this.requestInvest.emit({ loan: this.currentLoan, value: value });
     }
-    // this.requestInvest.emit(this.currentLoan);
-    // console.log(this.input);
   }
 
   ngOnInit(): void {}

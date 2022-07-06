@@ -5,11 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TimeFormaterPipe implements PipeTransform {
   transform(seconds: number): string {
-    console.log(seconds);
-    if (!seconds) return '';
-    const diffDate = new Date(String(seconds));
-    console.log(diffDate);
-    const result = `${diffDate.getUTCMonth()}`;
+    if (!seconds) return 'Unknow';
+    const diffDate = new Date(0);
+    diffDate.setUTCSeconds(seconds);
+    const result = diffDate.getUTCMonth()
+      ? `${diffDate.getUTCMonth()} month and ${diffDate.getUTCDate() - 1} days`
+      : `${diffDate.getUTCDate() - 1} days`;
 
     return result;
   }
