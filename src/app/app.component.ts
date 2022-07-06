@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'loan-list';
 
-  currentAmmount = 0;
+  currentAmmount: any;
+  isModalVisible = false;
+  currentLoan = {};
 
   loans = [
     {
@@ -20,6 +22,7 @@ export class AppComponent {
       term_remaining: '864000',
       ltv: '48.80',
       amount: '85,754',
+      isInvested: false,
     },
     {
       id: '5',
@@ -30,6 +33,7 @@ export class AppComponent {
       term_remaining: '1620000',
       ltv: '48.80',
       amount: '85,754',
+      isInvested: false,
     },
     {
       id: '12',
@@ -41,19 +45,44 @@ export class AppComponent {
       term_remaining: '879000',
       ltv: '48.80',
       amount: '85,754',
+      isInvested: false,
     },
   ];
 
   constructor() {
-    this.updateAmmount();
+    this.updateTotalAmmount();
   }
 
-  updateAmmount() {
+  updateTotalAmmount() {
     let result = 0;
     this.loans.forEach((loan) => {
       result += +loan.available.split(',').join('');
     });
 
-    this.currentAmmount = result;
+    this.currentAmmount = this.separateNumberWithCommas(result);
+  }
+
+  invest(param: any) {
+    const { loan, value } = param;
+    const loanToChange = this.loans.filter((lo) => lo.id == loan.id)[0];
+    let aval = +loan.available.split(',').join('') - value;
+    loanToChange.available = this.separateNumberWithCommas(aval);
+    if (!loanToChange.isInvested) loanToChange.isInvested = true;
+
+    this.closeModal();
+    this.updateTotalAmmount();
+  }
+
+  showModal(loan: any) {
+    this.currentLoan = loan;
+    this.isModalVisible = true;
+  }
+
+  closeModal() {
+    this.isModalVisible = false;
+  }
+
+  separateNumberWithCommas(num: any) {
+    return String(num).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 }

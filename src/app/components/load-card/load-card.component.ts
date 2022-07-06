@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-load-card',
@@ -7,8 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class LoadCardComponent implements OnInit {
   @Input() loan: any;
+  @Output() requestOpenModal = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  invest() {
+    this.requestOpenModal.emit(this.loan);
+  }
 }
